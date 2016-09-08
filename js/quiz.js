@@ -8,17 +8,17 @@ Loop over your array of cars and build up an HTML string to
  Use a counter variable to know when to close a row after three columns.*/
 
 var card = "";
-
+var colorArray = ["#F0F8FF", "#FAEBD7", "#00FFFF", "#F0FFFF", "#7FFF00", "#00FFFF"];
 function populatePage (inventory) {
-    document.getElementById("container").innerHTML += "<center><h2>Useds Cars</h2></center>";
+    card += "<center><h2>Useds Cars</h2></center>";
     for(var i = 0; i < inventory.cars.length; i++) {
-        // createCard(inventory.cars[i], i);
         currentCar = inventory.cars[i]
 
-        // create a new row
+        // create a new row (every 3rd time through)
         if((i % 3) === 0) {
             card += `<div class="row">`;
         }
+
         // create the card
         card += `<div class="col-lg-4" id="card_${i}">`;
             card += "<div class='black-border event-listener'>";
@@ -27,17 +27,17 @@ function populatePage (inventory) {
                 card += `<h3><center><span>${currentCar.model}</span></center></h3>`;
                 card += `<h3><center><span>${currentCar.year}</span></center></h3>`;
                 card += `<h3><center><span>$${currentCar.price}</span></center></h3>`;
-                card += `<p>${currentCar.description}</p>`
+                card += `<center><strong>Description</strong></center>`;
+                card += `<p>${currentCar.description}</p>`;
             card += `</div>`;
         card += `</div>`;
-        // end the row
-        // better way to do this???
-        if(i == 2 || i === 5 || i === 8 || i === 11) {
+
+        // end the row (every 3rd time through)
+        if((i + 1) % 3 === 0 && i !== 0) {
             card += `</div>`;
         }
     }
     // add to the dom
-    console.log(card);
     document.getElementById("container").innerHTML += card;
 
 
