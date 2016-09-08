@@ -1,12 +1,19 @@
 var CarLot = (function(newCarLot) {
-var counter = 0;
+
     newCarLot.activateEvents = function() {
         var classEventListener = document.getElementsByClassName("event-listener");
-
+        var searchInput = $('#search');
+        var color;
+        var bioHtml;
         for(var i = 0; i < classEventListener.length; i++) {
             classEventListener[i].addEventListener("click", function(event) {
-                var color = colorArray[Math.floor(Math.random() * 5) + 0];
+                // get random color from array
+                color = colorArray[Math.floor(Math.random() * 5) + 0];
                 newCarLot.styleCard(color, this);
+                // used when you edit the value in the input field
+                currentBio = this;
+                searchInput.val(this.lastChild.innerHTML);
+                searchInput.focus();
             })
         }
     }

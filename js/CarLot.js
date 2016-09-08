@@ -1,5 +1,6 @@
 var CarLot = (function () {
   var inventory = [];
+  var currentBio;
 
 return {
         loadInventory: function (callback) {
