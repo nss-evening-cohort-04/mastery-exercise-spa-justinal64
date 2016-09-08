@@ -23,8 +23,6 @@ var CarLot = (function () {
 
         for(var i = 0; i < classEventListener.length; i++) {
             classEventListener[i].addEventListener("click", function(event) {
-                console.log(event);
-                console.log(this);
                 this.classList.add("focus-styling");
             })
         }
