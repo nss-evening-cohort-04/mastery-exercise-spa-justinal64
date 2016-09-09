@@ -12,10 +12,8 @@ var CarLot = (function(newCarLot) {
 
                 if(this.classList.contains("focus-styling")) {
                     newCarLot.resetCard("white", this);
-                    console.log("resetCard");
                 } else {
                     newCarLot.styleCard(color, this);
-                    console.log("styleCard");
                 }
                 // used when you edit the value in the input field
                 currentBio = this;
