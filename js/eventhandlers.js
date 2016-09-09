@@ -9,7 +9,14 @@ var CarLot = (function(newCarLot) {
             classEventListener[i].addEventListener("click", function(event) {
                 // get random color from array
                 color = colorArray[Math.floor(Math.random() * 5) + 0];
-                newCarLot.styleCard(color, this);
+
+                if(this.classList.contains("focus-styling")) {
+                    newCarLot.resetCard("white", this);
+                    console.log("resetCard");
+                } else {
+                    newCarLot.styleCard(color, this);
+                    console.log("styleCard");
+                }
                 // used when you edit the value in the input field
                 currentBio = this;
                 searchInput.val(this.lastChild.innerHTML);
